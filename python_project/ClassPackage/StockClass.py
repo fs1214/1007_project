@@ -6,7 +6,9 @@ Created on 2014.12.9
 import numpy as np
 import pandas as pd
 import pandas.io.data as web
+import matplotlib
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 from MarketClass import *
 from Utilities.Exceptions import *
 from Utilities.Inputfunctions import *
@@ -106,6 +108,12 @@ class Stock():
         plt.title('The Comparison between {} and S&P 500 close price '.format(self.stock))
         plt.xlabel('Date Time')
         plt.ylabel('Percent Change of Close Price')
+        # Create the formatter using the function to_percent. This multiplies all the
+        # default labels by 100, making them all percentages
+        formatter = FuncFormatter(to_percent)
+        
+        # Set the formatter
+        plt.gca().yaxis.set_major_formatter(formatter)
         plt.show()
         
     def close_price_describe(self):
@@ -114,10 +122,20 @@ class Stock():
         """
         return self.close_price.describe()
     
+def to_percent(y, position):
+    # Ignore the passed in position. This has the effect of scaling the default
+    # tick locations.
+    s = str(100 * y)
+
+    # The percent symbol needs escaping in latex
+    if matplotlib.rcParams['text.usetex'] == True:
+        return s + r'$\%$'
+    else:
+        return s + '%'
+    
 if __name__ == '__main__':
     start = '2010/1/1'
     end = '2010/4/1'
     stockname='IBM'
-    #stock = Stock('ibm',start,end)    
-    print IsValidStockName(stockname,start,end)
-    #stock.plot_close_price()
+    stock = Stock('ibm',start,end)    
+    stock.plot_close_price()

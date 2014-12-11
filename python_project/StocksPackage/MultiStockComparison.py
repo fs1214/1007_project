@@ -42,4 +42,10 @@ def multistocks_percentchange(stock_name_list,start,end):
     plt.xlabel('Date Time')
     plt.ylabel('Percent Change of Close Price')
     plt.title('The Percent Change Comparison between stocks')
+    # Create the formatter using the function to_percent. This multiplies all the
+    # default labels by 100, making them all percentages
+    formatter = FuncFormatter(to_percent)
+    
+    # Set the formatter
+    plt.gca().yaxis.set_major_formatter(formatter)
     plt.show()
