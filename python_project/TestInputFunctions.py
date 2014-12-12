@@ -4,8 +4,8 @@ Created on Dec 8, 2014
 @author: Yunshi Li
 '''
 import unittest
-from Inputfunctions import *
-from Exceptions import *
+from Utilities.Inputfunctions import *
+from Utilities.Exceptions import *
 
 class TestUtilitiesInputFunctionsIsValidStockName(unittest.TestCase):
     """
