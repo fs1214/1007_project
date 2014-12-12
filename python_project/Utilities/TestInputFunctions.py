@@ -4,8 +4,8 @@ Created on Dec 8, 2014
 @author: Yunshi Li
 '''
 import unittest
-from Utilities.Inputfunctions import *
-from Utilities.Exceptions import *
+from Inputfunctions import *
+from Exceptions import *
 
 class TestUtilitiesInputFunctionsIsValidStockName(unittest.TestCase):
     """
@@ -17,9 +17,11 @@ class TestUtilitiesInputFunctionsIsValidStockName(unittest.TestCase):
         set up the test data
         """
         self.stock1 = "IBM"
-        self.stock2 = "C"
+        self.stock2 = "F"
         self.stock3 = "huabanxie"
         self.stock4 = "TkNIMEI"
+        self.date1 = "2010/1/1"
+        self.date2 = "2011/1/1"
 
     def tearDown(self):
         print "test stock names."
@@ -29,16 +31,18 @@ class TestUtilitiesInputFunctionsIsValidStockName(unittest.TestCase):
         """
         Test if the stock names are valid.
         """
-        self.assertTrue(IsValidStockName(self.stock1))
-        self.assertTrue(IsValidStockName(self.stock2))
+        self.assertTrue(IsValidStockName(self.stock1, self.date1, self.date2))
+        self.assertTrue(IsValidStockName(self.stock2, self.date1, self.date2))
         
     def testInvalidStockName(self):
         
         """
         Test if the stock names are invalid.
         """
-        self.assertFalse(IsValidStockName(self.stock3))
-        self.assertFalse(IsValidStockName(self.stock4))
+        self.assertFalse(IsValidStockName(self.stock3,self.date1, self.date2))
+        self.assertFalse(IsValidStockName(self.stock4,self.date1, self.date2))
+        self.assertFalse(IsValidStockName(self.stock2, self.date2, self.date1))
+
 
 
 class TestUtilitiesInputFunctionsIsValidDate(unittest.TestCase):
@@ -52,7 +56,6 @@ class TestUtilitiesInputFunctionsIsValidDate(unittest.TestCase):
         """
         self.date1 = "2011/12/11"
         self.date2 = "2014/2/2"
-        #self.date3 = "2015/1/2"
         self.date4 = "2013/13/2"
         self.date5 = "MoMoDa"
 
@@ -72,7 +75,6 @@ class TestUtilitiesInputFunctionsIsValidDate(unittest.TestCase):
         """
         Test if the dates are invalid.
         """
-        #self.assertFalse(IsValidDate(self.date3))
         self.assertFalse(IsValidDate(self.date4))
         self.assertFalse(IsValidDate(self.date5))
 
@@ -192,7 +194,7 @@ class TestUtilitiesInputFunctionsParseValidNum(unittest.TestCase):
         self.num4 = "C"
 
     def tearDown(self):
-        print "parse numbers."
+        print "test parse numbers."
 
 
     def testParseValidNum(self):
@@ -224,6 +226,7 @@ class TestUtilitiesInputFunctionsIsEmptyPortfolio(unittest.TestCase):
         self.dict2 = {"C":3}
         self.dict3 = {}
         self.dict4 = {"c":""}
+        self.dict5 = {"",3}
 
     def tearDown(self):
         print "test empty dictionary."
@@ -243,6 +246,7 @@ class TestUtilitiesInputFunctionsIsEmptyPortfolio(unittest.TestCase):
         self.assertFalse(IsEmptyPortfolio(self.dict1))
         self.assertFalse(IsEmptyPortfolio(self.dict2))
         self.assertFalse(IsEmptyPortfolio(self.dict4))
+        self.assertFalse(IsEmptyPortfolio(self.dict5))
 
 
 if __name__ == "__main__":
