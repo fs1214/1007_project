@@ -41,25 +41,40 @@ class MainWindow:
 			child.grid_configure(padx=10, pady=10)
 
 	def destroy(self):
+		'''
+		destroy the current window
+		'''
 		self.master.destroy()
 
 
 	def new_window1(self):
+		'''
+		create the one stock window
+		'''
 		self.newWindow = Toplevel(self.master)
 		self.newWindow.title("Show price of one stock")
 		self.app = SSW.SingleStockWindow(self.newWindow)
 
 	def new_window2(self):
+		'''
+		create the several stocks window
+		'''
 		self.newWindow = Toplevel(self.master)
 		self.newWindow.title("Compare prices of several stocks")		
 		self.app = MSW.MultiStocksWindow(self.newWindow)
 
 	def new_window3(self):
+		'''
+		create a window to show the stock price with market price
+		'''
 		self.newWindow = Toplevel(self.master)
 		self.newWindow.title("Compare a stock with market")
 		self.app = CWMW.ComparisonWithMarketWindow(self.newWindow)
 
 	def new_window4(self):
+		'''
+		create the Portfolio analysis window
+		'''
 		self.newWindow = Toplevel(self.master)
 		self.newWindow.title("Portfolio analysis")
 		self.app = PAW.PortfolioAnalysisWindow(self.newWindow)

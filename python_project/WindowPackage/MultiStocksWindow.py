@@ -81,6 +81,9 @@ class MultiStocksWindow:
 		self.stock_one_name_entry.focus()
 	
 	def clear_entry(self):
+		'''
+		clear all the entries
+		'''
 		self.stock_one_name_entry.delete(0, END)
 		self.stock_two_name_entry.delete(0, END)
 		self.stock_three_name_entry.delete(0, END)
@@ -89,6 +92,9 @@ class MultiStocksWindow:
 		self.end_date_entry.delete(0, END)
 		
 	def plot(self, stock_list, start_date, end_date):
+		'''
+		plot the data according to the user's input
+		'''
 		try:
 			CI.IsInternetOn()
 			MSC.multistocks_percentchange(stock_list, start_date, end_date)
