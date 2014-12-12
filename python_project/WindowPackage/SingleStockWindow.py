@@ -2,6 +2,7 @@
 Created on 2014.12.1
 
 @author: Zhuoran Lyu
+@contributor: Fangyun Sun
 '''
 
 from Tkinter import *

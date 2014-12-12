@@ -7,7 +7,7 @@ Created on 2014.12.9
 from Tkinter import *
 import ttk
 from WindowPackage.MainWindow import MainWindow
-#from PIL import Image, ImageTk
+
 
 def main():
     root = Tk()

@@ -11,7 +11,7 @@ import ComparisonWithMarketWindow as CWMW
 import MultiStocksWindow as MSW
 import PortfolioAnalysisWindow as PAW
 import tkMessageBox
-#from PIL import Image, ImageTk
+
 
 class MainWindow:
 	'''
@@ -32,7 +32,7 @@ class MainWindow:
 		self.button3 = ttk.Button(self.frame, text = "Compare a stock with market", width = 25, command = self.new_window3).grid(column=1, row=2, sticky=W)
 		self.button4 = ttk.Button(self.frame, text = "Portfolio analysis", width = 25, command = self.new_window4).grid(column=2, row=2, sticky=W)
 		self.button5 = ttk.Button(self.frame, text = "About", width = 25, command = lambda:\
-						tkMessageBox.showinfo(message='This is a stock analysis project made by cici, Fangyun and Zhuoran. Thank you for your interest!')).\
+						tkMessageBox.showinfo(message='This is a stock analysis project made by Yunshi Li, Fangyun Sun and Zhuoran Lyu. Thank you for your interest!')).\
 						grid(column=1, row=3, sticky=W)
 		self.button6 = ttk.Button(self.frame, text = "Quit", width = 25, command = self.destroy).grid(column=2, row=3, sticky=W)
 		

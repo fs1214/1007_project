@@ -40,7 +40,7 @@ class ComparisonWithMarketWindow:
 		self.end_date_entry = ttk.Entry(self.frame, width=7, textvariable=end_date)
 		self.end_date_entry.grid(column=2, row=3, sticky=(W, E))
 
-		ttk.Button(self.frame, text="Analysis", command=lambda: self.plot(stock_name.get(), start_date.get(), end_date.get())).grid(column=1, row=4, sticky=W)
+		ttk.Button(self.frame, text="Plot", command=lambda: self.plot(stock_name.get(), start_date.get(), end_date.get())).grid(column=1, row=4, sticky=W)
 		ttk.Button(self.frame, text="Clear", command=self.clear_entry).grid(column=2, row=4, sticky=W)
 
 

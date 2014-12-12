@@ -1,4 +1,6 @@
 '''
+Created on 2014.12.1
+
 @author: Yunshi Li
 '''
 
@@ -211,10 +213,3 @@ class Portfolio():
         plt.title('Moving average of 50 days V.S. portfolio price')
         plt.legend()
         plt.show()
-
-#stock_company_list = ['a','AAPL','F']
-#amount_list = ['30',20,20]
-#start_date = "2011/11/21"
-#end_date = "2012/3/21"        
-#first = Portfolio(stock_company_list, start_date, end_date, amount_list)
-#print first._merge_same_stock()
