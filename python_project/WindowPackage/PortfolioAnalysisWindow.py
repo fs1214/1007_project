@@ -127,6 +127,9 @@ class PortfolioAnalysisWindow:
 
 
 	def clear_entry(self):
+		'''
+		clear all the entries and analysis dataframe
+		'''
 		try:
 			self.stock_one_name_entry.delete(0, END)
 			self.stock_two_name_entry.delete(0, END)
@@ -148,6 +151,9 @@ class PortfolioAnalysisWindow:
 			pass
 
 	def plot(self, stock_list, amount_list, start_date, end_date):
+		'''
+		plot the data according to the user's input
+		'''
 		try:
 			CI.IsInternetOn()
 			portfolio = PC.Portfolio(stock_list, start_date, end_date, amount_list)
@@ -169,6 +175,9 @@ class PortfolioAnalysisWindow:
 
 
 	def analysis(self, stock_list, amount_list, start_date, end_date):
+		'''
+		analysis the data according to the user's input
+		'''
 		try:
 			CI.IsInternetOn()
 			portfolio = PC.Portfolio(stock_list, start_date, end_date, amount_list)

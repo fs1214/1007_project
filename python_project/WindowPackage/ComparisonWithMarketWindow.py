@@ -59,12 +59,18 @@ class ComparisonWithMarketWindow:
 		self.stock_name_entry.focus()
 
 	def clear_entry(self):
+		'''
+		clear all the entries and analysis dataframe
+		'''
 		self.stock_name_entry.delete(0, END)
 		self.start_date_entry.delete(0, END)
 		self.end_date_entry.delete(0, END)
 
 
 	def plot(self, stock_name, start_date, end_date):
+		'''
+		plot the sotck closed price with market price
+		'''
 		try:
 			CI.IsInternetOn()
 			stock = SC.Stock(stock_name, start_date, end_date)
