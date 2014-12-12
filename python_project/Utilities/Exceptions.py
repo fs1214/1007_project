@@ -1,7 +1,8 @@
 '''
 Created on 2014.12.9
 
-@author: apple
+@author: Fangyun Sun
+@contributor: Yunshi Li
 '''
 class StockNameInputException(Exception):
     """

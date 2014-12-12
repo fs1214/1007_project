@@ -1,7 +1,7 @@
 '''
 Created on 2014.12.9
 
-@author: apple
+@author: 
 '''
 
 from Tkinter import *

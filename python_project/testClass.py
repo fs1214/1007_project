@@ -1,7 +1,6 @@
 '''
-Created on Dec 11, 2014
-
-@author: ds-ga-1007
+@author: Fangyun Sun
+@contributor: Yunshi Li
 '''
 import unittest
 from ClassPackage.StockClass import *
