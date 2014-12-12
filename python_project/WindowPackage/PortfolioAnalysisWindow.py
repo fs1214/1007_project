@@ -32,7 +32,7 @@ class PortfolioAnalysisWindow:
 		stock_two_name = StringVar()
 		stock_two_name.set("AAPL")
 		stock_three_name = StringVar()
-		stock_three_name.set("C")
+		stock_three_name.set("JPM")
 		stock_four_name = StringVar()
 		stock_four_name.set("F")
 
