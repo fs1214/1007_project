@@ -1,11 +1,11 @@
 '''
-Created on Dec 11, 2014
-
-@author: ds-ga-1007
+@author: Fangyun Sun
+@contributor: Yunshi Li
 '''
 import unittest
 from ClassPackage.StockClass import *
 from Utilities.Exceptions import *
+from PortfolioPackage.PortfolioClass import *
 
 class TestStockClass(unittest.TestCase):
     """
@@ -80,6 +80,36 @@ class TestStockClass(unittest.TestCase):
         for item in validstocklist:
             stock_name,start_date,end_date = item
             self.assertTrue(Stock(stock_name,start_date,end_date))
+
+class TestPortfolioClass(unittest.TestCase):
+    """
+    Test whether the instance of PortfolioClass is valid.
+    """
+    
+    def setUp(self):
+        self.empty_portfolio1 = Portfolio(['','',''],'2001/10/20', '2013/1/2',['','','',])
+        self.empty_portfolio2 = Portfolio(['','',''],'2001/10/20','2013/1/2',['0','','',])
+        self.empty_portfolio3 = Portfolio(['c','',''],'2001/10/20', '2013/1/2',['0','','',])
+        self.empty_portfolio4 = Portfolio(['c','',''],'2001/10/20', '2013/1/2',['','','',])
+        self.empty_portfolio5 = Portfolio(['c','',''],'2001/10/20', '2013/1/2',['1','','',])
+        
+    
+    def tearDown(self):
+        print 'Test PortfolioClass Over!'
+
+    def testAllEmptyPortfolio(self):
+        """
+        test whether the program will raise EmptyPortfolioException when the stock inputs are empty and the trading volumes are empty or 0.
+        """
+      
+        self.assertRaises(EmptyPortfolioException, self.empty_portfolio1._pair_up)
+        self.assertRaises(EmptyPortfolioException, self.empty_portfolio2._pair_up)
+    
+    def testNotAllEmptyPortfolio(self):
+        self.assertTrue(self.empty_portfolio3._pair_up)
+        self.assertTrue(self.empty_portfolio4._pair_up)
+        self.assertTrue(self.empty_portfolio5._pair_up)
+      
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

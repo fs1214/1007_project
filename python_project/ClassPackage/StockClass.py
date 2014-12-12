@@ -1,7 +1,5 @@
 '''
-Created on 2014.12.9
-
-@author: apple
+@author: Fangyun Sun
 '''
 import numpy as np
 import pandas as pd
